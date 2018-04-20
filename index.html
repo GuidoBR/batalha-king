@@ -1,4 +1,5 @@
-<html><head>
+<html>
+  <head>
     <meta http-equiv="content-type" content="text/html; charset=windows-1252">
     <title>Batalha de livros King</title>
     <link rel="icon" href="favicon.ico">
@@ -6,101 +7,81 @@
     <script async="" src="arquivos/js.js"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
 
-gtag('config', 'UA-87949-16');
-</script>
-<script>
-  function validateForm() {
-    if (document.forms['f']["email"].value == '') {
-      alert("Please enter your email");
-      return false;
-    } else {
-      var s = document.forms['f']['s'];
-      s.disabled=true;
-      s.value='Saving..';
-      return 1;
-    }
-  }
-function clickedOn(idnum,childnum) {
-  var was = document.getElementById("img"+childnum).src;
-  document.getElementById("img"+childnum).src = document.getElementById("img"+idnum).src;
-  if (was.substr(-9,9) != 'pixel.png') {
-    // switch it and all children too.
-    for (var i = childnum; i < 64; i++) {
-      if (document.getElementById("img"+i).src == was) {
-        document.getElementById("img"+i).src = document.getElementById("img"+idnum).src;
+      gtag('config', 'UA-87949-16');
+    </script>
+    <script>
+    function clickedOn(idnum,childnum) {
+      var was = document.getElementById("img"+childnum).src;
+      document.getElementById("img"+childnum).src = document.getElementById("img"+idnum).src;
+      if (was.substr(-9,9) != 'pixel.png') {
+        // switch it and all children too.
+        for (var i = childnum; i < 64; i++) {
+          if (document.getElementById("img"+i).src == was) {
+            document.getElementById("img"+i).src = document.getElementById("img"+idnum).src;
+          }
+        }
+      }
+      var anyblanks = 0;
+      var passer = 'http://disneybracket.com/lock2?q=';
+      passer = '';
+      for (var i = 33; i < 64; i++) {
+        if (document.getElementById("img"+i).src.substr(-9,9) == 'pixel.png') {
+          anyblanks = 1;
+        }
+        var path = document.getElementById("img"+i).src.split("/");
+        var img = path.pop();
+        passer = passer + img.substring(0,img.length-4) + ':';
+      }
+      if (!anyblanks) {
+        document.getElementById("lock").value=passer;
+        document.getElementById("locktext").style="position:absolute;left:10px;top:10px;color:black;font-family:sans-serif;visibility:visible";
+        document.getElementById("clicktext").style="visibility:hidden;position:absolute";
+        document.getElementById("email").focus();
+        window.scrollTo(0,0);
       }
     }
-  }
-  var anyblanks = 0;
-  var passer = 'http://disneybracket.com/lock2?q=';
-  passer = '';
-  for (var i = 33; i < 64; i++) {
-    if (document.getElementById("img"+i).src.substr(-9,9) == 'pixel.png') {
-      anyblanks = 1;
-    }
-    var path = document.getElementById("img"+i).src.split("/");
-    var img = path.pop();
-    passer = passer + img.substring(0,img.length-4) + ':';
-  }
-  if (!anyblanks) {
-    //		document.getElementById("lock").href=passer;
-    document.getElementById("lock").value=passer;
-    document.getElementById("locktext").style="position:absolute;left:10px;top:10px;color:black;font-family:sans-serif;visibility:visible";
-    document.getElementById("clicktext").style="visibility:hidden;position:absolute";
-    document.getElementById("email").focus();
-    window.scrollTo(0,0);
-    //		console.log(passer);
-  }
-}
-</script>
-</head><body>
-<b id="clicktext" style="position:absolute;left:10px;top:10px;color:black;font-family:sans-serif;visibility:visible">Clique nos seus livros favoritos!</b>
-<!-- <a id="lock" style="position:absolute;left:30px;top:10px;color:black;font-family:sans-serif;visibility:hidden" href="javascript:void(0)"> -->
-  <form method="get" action="/lock2" id="f" onsubmit="return validateForm();">
-    <b id="locktext" style="position:absolute;left:30px;top:10px;color:black;font-family:sans-serif;visibility:hidden">
-      <input id="lock" name="q" value="" type="hidden">
-      <input id="email" name="email" placeholder="Enter your email"><input id="s" value="Save bracket" type="submit">
-      Save your bracket, then share and compare it with friends!
-
-  </b></form>
+    </script>
+</head>
+<body>
+  <b id="clicktext" style="position:absolute;left:10px;top:10px;color:black;font-family:sans-serif;visibility:visible">Clique nos seus livros favoritos!</b>
   <img src="arquivos/brackett.png" style="position:absolute;top:59px;left:0px;">
   <img src="arquivos/suma.png" style="position:absolute;top:40px;left:820px" width="400">
   <a href="javascript:void(0)" onclick="clickedOn(1,33)"><img id="img1" src="arquivos/1.png" style="position:absolute;top:45px;left:30px" width="120" height="28"></a>
-  <a href="javascript:void(0)" onclick="clickedOn(2,33)"><img id="img2" src="arquivos/2.png" style="position:absolute;top:73px;left:30px" width="120" height="28">
-    </a><a href="javascript:void(0)" onclick="clickedOn(3,34)"><img id="img3" src="arquivos/3.png" style="position:absolute;top:101px;left:30px" width="120" height="28">
-    </a><a href="javascript:void(0)" onclick="clickedOn(4,34)"><img id="img4" src="arquivos/4.png" style="position:absolute;top:129px;left:30px" width="120" height="28">
-    </a><a href="javascript:void(0)" onclick="clickedOn(5,35)"><img id="img5" src="arquivos/5.png" style="position:absolute;top:157px;left:30px" width="120" height="28">
-    </a><a href="javascript:void(0)" onclick="clickedOn(6,35)"><img id="img6" src="arquivos/6.png" style="position:absolute;top:185px;left:30px" width="120" height="28">
-    </a><a href="javascript:void(0)" onclick="clickedOn(7,36)"><img id="img7" src="arquivos/7.png" style="position:absolute;top:213px;left:30px" width="120" height="28">
-    </a><a href="javascript:void(0)" onclick="clickedOn(8,36)"><img id="img8" src="arquivos/8.png" style="position:absolute;top:241px;left:30px" width="120" height="28">
-    </a><a href="javascript:void(0)" onclick="clickedOn(9,37)"><img id="img9" src="arquivos/9.png" style="position:absolute;top:269px;left:30px" width="120" height="28">
-    </a><a href="javascript:void(0)" onclick="clickedOn(10,37)"><img id="img10" src="arquivos/10.png" style="position:absolute;top:297px;left:30px" width="120" height="28">
-    </a><a href="javascript:void(0)" onclick="clickedOn(11,38)"><img id="img11" src="arquivos/11.png" style="position:absolute;top:325px;left:30px" width="120" height="28">
-    </a><a href="javascript:void(0)" onclick="clickedOn(12,38)"><img id="img12" src="arquivos/12.png" style="position:absolute;top:353px;left:30px" width="120" height="28">
-    </a><a href="javascript:void(0)" onclick="clickedOn(13,39)"><img id="img13" src="arquivos/13.png" style="position:absolute;top:381px;left:30px" width="120" height="28">
-    </a><a href="javascript:void(0)" onclick="clickedOn(14,39)"><img id="img14" src="arquivos/14.png" style="position:absolute;top:409px;left:30px" width="120" height="28">
-    </a><a href="javascript:void(0)" onclick="clickedOn(15,40)"><img id="img15" src="arquivos/15.png" style="position:absolute;top:437px;left:30px" width="120" height="28">
-    </a><a href="javascript:void(0)" onclick="clickedOn(16,40)"><img id="img16" src="arquivos/16.png" style="position:absolute;top:465px;left:30px" width="120" height="28">
-    </a><a href="javascript:void(0)" onclick="clickedOn(17,41)"><img id="img17" src="arquivos/17.png" style="position:absolute;top:506px;left:30px" width="120" height="28">
-    </a><a href="javascript:void(0)" onclick="clickedOn(18,41)"><img id="img18" src="arquivos/18.png" style="position:absolute;top:534px;left:30px" width="120" height="28">
-    </a><a href="javascript:void(0)" onclick="clickedOn(19,42)"><img id="img19" src="arquivos/19.png" style="position:absolute;top:562px;left:30px" width="120" height="28">
-    </a><a href="javascript:void(0)" onclick="clickedOn(20,42)"><img id="img20" src="arquivos/20.png" style="position:absolute;top:590px;left:30px" width="120" height="28">
-    </a><a href="javascript:void(0)" onclick="clickedOn(21,43)"><img id="img21" src="arquivos/21.png" style="position:absolute;top:618px;left:30px" width="120" height="28">
-    </a><a href="javascript:void(0)" onclick="clickedOn(22,43)"><img id="img22" src="arquivos/22.png" style="position:absolute;top:646px;left:30px" width="120" height="28">
-    </a><a href="javascript:void(0)" onclick="clickedOn(23,44)"><img id="img23" src="arquivos/23.png" style="position:absolute;top:674px;left:30px" width="120" height="28">
-    </a><a href="javascript:void(0)" onclick="clickedOn(24,44)"><img id="img24" src="arquivos/24.png" style="position:absolute;top:702px;left:30px" width="120" height="28">
-    </a><a href="javascript:void(0)" onclick="clickedOn(25,45)"><img id="img25" src="arquivos/25.png" style="position:absolute;top:730px;left:30px" width="120" height="28">
-    </a><a href="javascript:void(0)" onclick="clickedOn(26,45)"><img id="img26" src="arquivos/26.png" style="position:absolute;top:758px;left:30px" width="120" height="28">
-    </a><a href="javascript:void(0)" onclick="clickedOn(27,46)"><img id="img27" src="arquivos/27.png" style="position:absolute;top:786px;left:30px" width="120" height="28">
-    </a><a href="javascript:void(0)" onclick="clickedOn(28,46)"><img id="img28" src="arquivos/28.png" style="position:absolute;top:814px;left:30px" width="120" height="28">
-    </a><a href="javascript:void(0)" onclick="clickedOn(29,47)"><img id="img29" src="arquivos/29.png" style="position:absolute;top:842px;left:30px" width="120" height="28">
-    </a><a href="javascript:void(0)" onclick="clickedOn(30,47)"><img id="img30" src="arquivos/30.png" style="position:absolute;top:870px;left:30px" width="120" height="28">
-    </a><a href="javascript:void(0)" onclick="clickedOn(31,48)"><img id="img31" src="arquivos/31.png" style="position:absolute;top:898px;left:30px" width="120" height="28">
-    </a><a href="javascript:void(0)" onclick="clickedOn(32,48)"><img id="img32" src="arquivos/32.png" style="position:absolute;top:926px;left:30px" width="120" height="28">
-  </a>
+  <a href="javascript:void(0)" onclick="clickedOn(2,33)"><img id="img2" src="arquivos/2.png" style="position:absolute;top:73px;left:30px" width="120" height="28"></a>
+  <a href="javascript:void(0)" onclick="clickedOn(3,34)"><img id="img3" src="arquivos/3.png" style="position:absolute;top:101px;left:30px" width="120" height="28"></a>
+  <a href="javascript:void(0)" onclick="clickedOn(4,34)"><img id="img4" src="arquivos/4.png" style="position:absolute;top:129px;left:30px" width="120" height="28"></a>
+  <a href="javascript:void(0)" onclick="clickedOn(5,35)"><img id="img5" src="arquivos/5.png" style="position:absolute;top:157px;left:30px" width="120" height="28"></a>
+  <a href="javascript:void(0)" onclick="clickedOn(6,35)"><img id="img6" src="arquivos/6.png" style="position:absolute;top:185px;left:30px" width="120" height="28"></a>
+  <a href="javascript:void(0)" onclick="clickedOn(7,36)"><img id="img7" src="arquivos/7.png" style="position:absolute;top:213px;left:30px" width="120" height="28"></a>
+  <a href="javascript:void(0)" onclick="clickedOn(8,36)"><img id="img8" src="arquivos/8.png" style="position:absolute;top:241px;left:30px" width="120" height="28"></a>
+  <a href="javascript:void(0)" onclick="clickedOn(9,37)"><img id="img9" src="arquivos/9.png" style="position:absolute;top:269px;left:30px" width="120" height="28"></a>
+  <a href="javascript:void(0)" onclick="clickedOn(10,37)"><img id="img10" src="arquivos/10.png" style="position:absolute;top:297px;left:30px" width="120" height="28"></a>
+  <a href="javascript:void(0)" onclick="clickedOn(11,38)"><img id="img11" src="arquivos/11.png" style="position:absolute;top:325px;left:30px" width="120" height="28"></a>
+  <a href="javascript:void(0)" onclick="clickedOn(12,38)"><img id="img12" src="arquivos/12.png" style="position:absolute;top:353px;left:30px" width="120" height="28"></a>
+  <a href="javascript:void(0)" onclick="clickedOn(13,39)"><img id="img13" src="arquivos/13.png" style="position:absolute;top:381px;left:30px" width="120" height="28"></a>
+  <a href="javascript:void(0)" onclick="clickedOn(14,39)"><img id="img14" src="arquivos/14.png" style="position:absolute;top:409px;left:30px" width="120" height="28"></a>
+  <a href="javascript:void(0)" onclick="clickedOn(15,40)"><img id="img15" src="arquivos/15.png" style="position:absolute;top:437px;left:30px" width="120" height="28"></a>
+  <a href="javascript:void(0)" onclick="clickedOn(16,40)"><img id="img16" src="arquivos/16.png" style="position:absolute;top:465px;left:30px" width="120" height="28"></a>
+  <a href="javascript:void(0)" onclick="clickedOn(17,41)"><img id="img17" src="arquivos/17.png" style="position:absolute;top:506px;left:30px" width="120" height="28"></a>
+  <a href="javascript:void(0)" onclick="clickedOn(18,41)"><img id="img18" src="arquivos/18.png" style="position:absolute;top:534px;left:30px" width="120" height="28"></a>
+  <a href="javascript:void(0)" onclick="clickedOn(19,42)"><img id="img19" src="arquivos/19.png" style="position:absolute;top:562px;left:30px" width="120" height="28"></a>
+  <a href="javascript:void(0)" onclick="clickedOn(20,42)"><img id="img20" src="arquivos/20.png" style="position:absolute;top:590px;left:30px" width="120" height="28"></a>
+  <a href="javascript:void(0)" onclick="clickedOn(21,43)"><img id="img21" src="arquivos/21.png" style="position:absolute;top:618px;left:30px" width="120" height="28"></a>
+  <a href="javascript:void(0)" onclick="clickedOn(22,43)"><img id="img22" src="arquivos/22.png" style="position:absolute;top:646px;left:30px" width="120" height="28"></a>
+  <a href="javascript:void(0)" onclick="clickedOn(23,44)"><img id="img23" src="arquivos/23.png" style="position:absolute;top:674px;left:30px" width="120" height="28"></a>
+  <a href="javascript:void(0)" onclick="clickedOn(24,44)"><img id="img24" src="arquivos/24.png" style="position:absolute;top:702px;left:30px" width="120" height="28"></a>
+  <a href="javascript:void(0)" onclick="clickedOn(25,45)"><img id="img25" src="arquivos/25.png" style="position:absolute;top:730px;left:30px" width="120" height="28"></a>
+  <a href="javascript:void(0)" onclick="clickedOn(26,45)"><img id="img26" src="arquivos/26.png" style="position:absolute;top:758px;left:30px" width="120" height="28"></a>
+  <a href="javascript:void(0)" onclick="clickedOn(27,46)"><img id="img27" src="arquivos/27.png" style="position:absolute;top:786px;left:30px" width="120" height="28"></a>
+  <a href="javascript:void(0)" onclick="clickedOn(28,46)"><img id="img28" src="arquivos/28.png" style="position:absolute;top:814px;left:30px" width="120" height="28"></a>
+  <a href="javascript:void(0)" onclick="clickedOn(29,47)"><img id="img29" src="arquivos/29.png" style="position:absolute;top:842px;left:30px" width="120" height="28"></a>
+  <a href="javascript:void(0)" onclick="clickedOn(30,47)"><img id="img30" src="arquivos/30.png" style="position:absolute;top:870px;left:30px" width="120" height="28"></a>
+  <a href="javascript:void(0)" onclick="clickedOn(31,48)"><img id="img31" src="arquivos/31.png" style="position:absolute;top:898px;left:30px" width="120" height="28"></a>
+  <a href="javascript:void(0)" onclick="clickedOn(32,48)"><img id="img32" src="arquivos/32.png" style="position:absolute;top:926px;left:30px" width="120" height="28"></a>
+
   <a href="javascript:void(0)" onclick="clickedOn(33,49)"><img id="img33" src="arquivos/pixel.png" style="position:absolute;top:40px;left:195px" width="120" height="42"></a>
   <a href="javascript:void(0)" onclick="clickedOn(34,49)"><img id="img34" src="arquivos/pixel.png" style="position:absolute;top:96px;left:195px" width="120" height="42"></a>
   <a href="javascript:void(0)" onclick="clickedOn(35,50)"><img id="img35" src="arquivos/pixel.png" style="position:absolute;top:152px;left:195px" width="120" height="42"></a>
@@ -132,4 +113,5 @@ function clickedOn(idnum,childnum) {
   <a href="javascript:void(0)" onclick="clickedOn(61,63)"><img id="img61" src="arquivos/pixel.png" style="position:absolute;top:180px;left:806px" width="200" height="80"></a>
   <a href="javascript:void(0)" onclick="clickedOn(62,63)"><img id="img62" src="arquivos/pixel.png" style="position:absolute;top:656px;left:806px" width="200" height="80"></a>
   <img id="img63" src="arquivos/pixel.png" style="position:absolute;top:390px;left:1040px" width="220">
-</body></html>
+</body>
+</html>
